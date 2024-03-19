@@ -56,8 +56,7 @@ class SummaryScreen extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    UnitCardWidget(
-                      direction: Axis.vertical,
+                    UnitCardWidget.vertical(
                       icon: Icons.directions_walk,
                       value: 0,
                       unit: 'steps',
@@ -68,13 +67,13 @@ class SummaryScreen extends StatelessWidget {
                     Expanded(
                       child: Column(
                         children: [
-                          UnitCardWidget(
+                          UnitCardWidget.horizontal(
                             icon: Icons.monitor_heart,
                             value: 0,
                             unit: 'BPM',
                           ),
                           SizedBox(height: 20),
-                          UnitCardWidget(
+                          UnitCardWidget.horizontal(
                             icon: Icons.thermostat,
                             value: 0,
                             unit: '°C',
@@ -94,13 +93,13 @@ class SummaryScreen extends StatelessWidget {
                     Expanded(
                       child: Column(
                         children: [
-                          UnitCardWidget(
+                          UnitCardWidget.horizontal(
                             icon: Icons.local_fire_department,
                             value: 0,
                             unit: 'kcal',
                           ),
                           SizedBox(height: 20),
-                          UnitCardWidget(
+                          UnitCardWidget.horizontal(
                             icon: Icons.route,
                             value: 0,
                             unit: 'km',
@@ -109,8 +108,7 @@ class SummaryScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 20),
-                    UnitCardWidget(
-                      direction: Axis.vertical,
+                    UnitCardWidget.vertical(
                       icon: Icons.timelapse,
                       value: 0,
                       unit: 'minutes',

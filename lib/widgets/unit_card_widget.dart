@@ -9,7 +9,25 @@ class UnitCardWidget extends StatelessWidget {
 
   const UnitCardWidget({
     super.key,
+    required this.direction,
+    required this.icon,
+    required this.value,
+    required this.unit,
+    this.description,
+  });
+
+  const UnitCardWidget.horizontal({
+    super.key,
     this.direction = Axis.horizontal,
+    required this.icon,
+    required this.value,
+    required this.unit,
+    this.description,
+  });
+
+  const UnitCardWidget.vertical({
+    super.key,
+    this.direction = Axis.vertical,
     required this.icon,
     required this.value,
     required this.unit,
