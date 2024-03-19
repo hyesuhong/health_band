@@ -49,39 +49,76 @@ class SummaryScreen extends StatelessWidget {
       body: const SafeArea(
         child: Padding(
           padding: EdgeInsets.all(20.0),
-          child: SizedBox(
-            height: 160,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                UnitCardWidget(
-                  direction: Axis.vertical,
-                  icon: Icons.directions_walk,
-                  value: 0,
-                  unit: 'steps',
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      UnitCardWidget(
-                        icon: Icons.monitor_heart,
-                        value: 0,
-                        unit: 'BPM',
+          child: Column(
+            children: [
+              SizedBox(
+                height: 160,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    UnitCardWidget(
+                      direction: Axis.vertical,
+                      icon: Icons.directions_walk,
+                      value: 0,
+                      unit: 'steps',
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          UnitCardWidget(
+                            icon: Icons.monitor_heart,
+                            value: 0,
+                            unit: 'BPM',
+                          ),
+                          SizedBox(height: 20),
+                          UnitCardWidget(
+                            icon: Icons.thermostat,
+                            value: 0,
+                            unit: '°C',
+                          ),
+                        ],
                       ),
-                      SizedBox(height: 20),
-                      UnitCardWidget(
-                        icon: Icons.thermostat,
-                        value: 0,
-                        unit: '°C',
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(height: 20),
+              SizedBox(
+                height: 160,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          UnitCardWidget(
+                            icon: Icons.local_fire_department,
+                            value: 0,
+                            unit: 'kcal',
+                          ),
+                          SizedBox(height: 20),
+                          UnitCardWidget(
+                            icon: Icons.route,
+                            value: 0,
+                            unit: 'km',
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+                    ),
+                    SizedBox(width: 20),
+                    UnitCardWidget(
+                      direction: Axis.vertical,
+                      icon: Icons.timelapse,
+                      value: 0,
+                      unit: 'minutes',
+                    )
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),

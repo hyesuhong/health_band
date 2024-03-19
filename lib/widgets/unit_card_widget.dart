@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class UnitCardWidget extends StatelessWidget {
   final Axis direction;
-  final IconData? icon;
+  final IconData icon;
   final int value;
   final String unit;
   final String? description;
@@ -10,7 +10,7 @@ class UnitCardWidget extends StatelessWidget {
   const UnitCardWidget({
     super.key,
     this.direction = Axis.horizontal,
-    this.icon,
+    required this.icon,
     required this.value,
     required this.unit,
     this.description,
