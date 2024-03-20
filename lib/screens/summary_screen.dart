@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_band/widgets/profile_widget.dart';
+import 'package:health_band/widgets/unit_card_widget.dart';
 
 class SummaryScreen extends StatelessWidget {
   const SummaryScreen({super.key});
@@ -54,7 +55,7 @@ class SummaryScreen extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(16)),
                   color: Colors.grey[200],
                 ),
-                child: Column(
+                child: const Column(
                   children: [
                     Stack(
                       alignment: Alignment.center,
@@ -62,18 +63,16 @@ class SummaryScreen extends StatelessWidget {
                         SizedBox(
                           width: 160,
                           height: 160,
-                          child: Transform.rotate(
-                            angle: 10.38,
-                            child: const CircularProgressIndicator(
-                              value: 0.7, // 0 ~ 0.7
-                              color: Colors.grey,
-                              strokeAlign: BorderSide.strokeAlignInside,
-                              strokeCap: StrokeCap.round,
-                              strokeWidth: 10,
-                            ),
+                          child: CircularProgressIndicator(
+                            value: 0.7,
+                            color: Colors.grey,
+                            backgroundColor: Colors.black12,
+                            strokeAlign: BorderSide.strokeAlignInside,
+                            strokeCap: StrokeCap.round,
+                            strokeWidth: 10,
                           ),
                         ),
-                        const Column(
+                        Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
@@ -141,6 +140,27 @@ class SummaryScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              const SizedBox(height: 20),
+              const UnitCardWidget(
+                title: 'Heart rate',
+                icon: Icons.monitor_heart_outlined,
+                value: 0,
+                unit: 'BPM',
+              ),
+              const SizedBox(height: 20),
+              const UnitCardWidget(
+                title: 'Temperature',
+                icon: Icons.thermostat,
+                value: 0,
+                unit: '℃',
+              ),
+              const SizedBox(height: 20),
+              const UnitCardWidget(
+                title: 'Movement Time',
+                icon: Icons.timer_outlined,
+                value: 0,
+                unit: 'Minutes',
+              )
             ],
           ),
         ),
