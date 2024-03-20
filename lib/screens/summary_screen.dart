@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_band/widgets/profile_widget.dart';
 import 'package:health_band/widgets/unit_card_widget.dart';
 
 class SummaryScreen extends StatelessWidget {
@@ -8,22 +9,15 @@ class SummaryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Summary'),
         centerTitle: true,
         automaticallyImplyLeading: false,
-        leading: Padding(
+        leading: Container(
           padding: const EdgeInsets.only(left: 14.0, top: 7, bottom: 7),
-          child: IconButton.filled(
-            style: IconButton.styleFrom(
-              backgroundColor: Colors.grey,
-            ),
-            padding: const EdgeInsets.all(0),
-            iconSize: 28,
-            color: Colors.white,
-            icon: const Icon(Icons.person_outline),
-            onPressed: () {
+          child: GestureDetector(
+            onTap: () {
               // TODO: open user setting
             },
+            child: const ProfileWidget(),
           ),
         ),
         actions: <Widget>[
