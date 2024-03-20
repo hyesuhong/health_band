@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:health_band/widgets/profile_widget.dart';
-import 'package:health_band/widgets/unit_card_widget.dart';
 
 class SummaryScreen extends StatelessWidget {
   const SummaryScreen({super.key});
@@ -40,72 +39,104 @@ class SummaryScreen extends StatelessWidget {
           )
         ],
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              SizedBox(
-                height: 160,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    UnitCardWidget.vertical(
-                      icon: Icons.directions_walk,
-                      value: 0,
-                      unit: 'steps',
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          UnitCardWidget.horizontal(
-                            icon: Icons.monitor_heart,
-                            value: 0,
-                            unit: 'BPM',
-                          ),
-                          SizedBox(height: 20),
-                          UnitCardWidget.horizontal(
-                            icon: Icons.thermostat,
-                            value: 0,
-                            unit: '°C',
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 16,
                 ),
-              ),
-              SizedBox(height: 20),
-              SizedBox(
-                height: 160,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
+                constraints: const BoxConstraints(minWidth: double.infinity),
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(16)),
+                  color: Colors.grey[200],
+                ),
+                child: Column(
                   children: [
-                    Expanded(
-                      child: Column(
-                        children: [
-                          UnitCardWidget.horizontal(
-                            icon: Icons.local_fire_department,
-                            value: 0,
-                            unit: 'kcal',
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        SizedBox(
+                          width: 160,
+                          height: 160,
+                          child: Transform.rotate(
+                            angle: 10.38,
+                            child: const CircularProgressIndicator(
+                              value: 0.7, // 0 ~ 0.7
+                              color: Colors.grey,
+                              strokeAlign: BorderSide.strokeAlignInside,
+                              strokeCap: StrokeCap.round,
+                              strokeWidth: 10,
+                            ),
                           ),
-                          SizedBox(height: 20),
-                          UnitCardWidget.horizontal(
-                            icon: Icons.route,
-                            value: 0,
-                            unit: 'km',
-                          ),
-                        ],
-                      ),
+                        ),
+                        const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              '2118',
+                              style: TextStyle(
+                                fontSize: 32,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              'Steps',
+                              style: TextStyle(color: Colors.grey),
+                            )
+                          ],
+                        )
+                      ],
                     ),
-                    SizedBox(width: 20),
-                    UnitCardWidget.vertical(
-                      icon: Icons.timelapse,
-                      value: 0,
-                      unit: 'minutes',
+                    const SizedBox(height: 16),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Text(
+                                '123 Kcal',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Text(
+                                'Burned',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Text(
+                                '3.6 Km',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Text(
+                                'Distance',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     )
                   ],
                 ),
