@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_band/widgets/gauge_widget.dart';
 import 'package:health_band/widgets/profile_widget.dart';
 import 'package:health_band/widgets/unit_card_widget.dart';
 
@@ -57,41 +58,10 @@ class SummaryScreen extends StatelessWidget {
                 ),
                 child: const Column(
                   children: [
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        SizedBox(
-                          width: 160,
-                          height: 160,
-                          child: CircularProgressIndicator(
-                            value: 0.7,
-                            color: Colors.grey,
-                            backgroundColor: Colors.black12,
-                            strokeAlign: BorderSide.strokeAlignInside,
-                            strokeCap: StrokeCap.round,
-                            strokeWidth: 10,
-                          ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              '2118',
-                              style: TextStyle(
-                                fontSize: 32,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            Text(
-                              'Steps',
-                              style: TextStyle(color: Colors.grey),
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    const Row(
+                    GaugeWidget(
+                        size: 160, total: 8000, value: 2118, label: 'Steps'),
+                    SizedBox(height: 16),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Expanded(
