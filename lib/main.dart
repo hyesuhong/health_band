@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_band/screens/summary_screen.dart';
+import 'package:health_band/screens/device_manage_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SummaryScreen(),
+      home: const DeviceManageScreen(),
     );
   }
 }
