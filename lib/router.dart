@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:health_band/screens/device_manage_screen.dart';
+import 'package:health_band/screens/device_search_screen.dart';
 import 'package:health_band/screens/summary_screen.dart';
 
 class AppRoutes {
   static const home = '/';
   static const device = '/device';
+  static const deviceSearch = '/device/search';
 }
 
 class RouteGenerator {
@@ -14,6 +16,8 @@ class RouteGenerator {
         return _buildRoute(const SummaryScreen(), settings: settings);
       case AppRoutes.device:
         return _buildRoute(const DeviceManageScreen(), settings: settings);
+      case AppRoutes.deviceSearch:
+        return _buildRoute(const DeviceSearchScreen(), settings: settings);
       default:
         return _errorRoute();
     }

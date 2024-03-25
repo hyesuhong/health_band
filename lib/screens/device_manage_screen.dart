@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:health_band/router.dart';
+import 'package:health_band/widgets/device_info_widget.dart';
 
 class DeviceManageScreen extends StatelessWidget {
   const DeviceManageScreen({super.key});
@@ -7,77 +9,45 @@ class DeviceManageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('장치 관리'),
-        actions: [
-          Container(
-            width: 30,
-            height: 30,
-            margin: const EdgeInsets.only(
-              right: 14,
-            ),
-            child: IconButton(
-              padding: const EdgeInsets.all(0),
-              iconSize: 24,
-              onPressed: () {},
-              icon: const Icon(Icons.radar_outlined),
-            ),
-          ),
-        ],
+        title: const Text('기기 관리'),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 12,
-                ),
-                color: index.isEven ? Colors.transparent : Colors.grey[100],
+        child: Column(
+          children: [
+            const Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(20),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      '기기명',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
+                    Expanded(
+                      child: DeviceInfoWidget(
+                        deviceName: '기기명',
                       ),
                     ),
-                    const Text(
-                      'mac address',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        OutlinedButton(
-                          style: OutlinedButton.styleFrom(
-                            textStyle: const TextStyle(fontSize: 12),
-                            minimumSize: Size.zero,
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 8,
-                            ),
-                            foregroundColor: Colors.grey[700],
-                            fixedSize: const Size.fromWidth(80),
-                          ),
-                          onPressed: () {},
-                          child: Text(index.isOdd ? '연결' : '연결 끊기'),
-                        )
-                      ],
+                    // TODO: 저장된 기기가 있을 경우, 하단 텍스트 노출
+                    Text(
+                      '기존 기기와 연결을 끊고 새로운 기기를 연결합니다.',
+                      style: TextStyle(color: Colors.grey),
                     )
                   ],
                 ),
-              );
-            },
-            itemCount: 2,
-          ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(left: 20, bottom: 20, right: 20),
+              child: FilledButton(
+                // TODO: 저장된 기기 정보 유무로 텍스트 변경(유: 다른 기기 검색 / 무: 기기 검색)
+                style: FilledButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  minimumSize: const Size.fromHeight(40),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRoutes.deviceSearch);
+                },
+                child: const Text('다른 기기 검색'),
+              ),
+            )
+          ],
         ),
       ),
     );

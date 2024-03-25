@@ -28,17 +28,11 @@ class SummaryScreen extends StatelessWidget {
             child: SizedBox(
               width: 42,
               height: 42,
-              child: IconButton.filled(
-                color: Colors.white,
-                style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll<Color>(Colors.grey),
-                ),
+              child: IconButton(
                 onPressed: () {
                   Navigator.pushNamed(context, AppRoutes.device);
                 },
-                icon: const Icon(
-                  Icons.watch_outlined,
-                ),
+                icon: const Icon(Icons.watch_outlined),
               ),
             ),
           )
