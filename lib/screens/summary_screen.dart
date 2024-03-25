@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_band/router.dart';
 import 'package:health_band/widgets/gauge_widget.dart';
 import 'package:health_band/widgets/profile_widget.dart';
 import 'package:health_band/widgets/unit_card_widget.dart';
@@ -24,17 +25,19 @@ class SummaryScreen extends StatelessWidget {
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14),
-            child: Container(
+            child: SizedBox(
               width: 42,
               height: 42,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: Colors.grey,
-              ),
-              child: const Center(
-                child: Icon(
+              child: IconButton.filled(
+                color: Colors.white,
+                style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll<Color>(Colors.grey),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRoutes.device);
+                },
+                icon: const Icon(
                   Icons.watch_outlined,
-                  color: Colors.white,
                 ),
               ),
             ),
